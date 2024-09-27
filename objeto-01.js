@@ -1,5 +1,5 @@
-/* *** Objeto 01 forEach***
-=========================
+/* *** Objeto 01 forEach ***
+========================= 
     const produtoPreco = [
         { nome: 'arroz cristal', preco: 37.50 },
         { nome: 'arroz pampa', preco: 29.50 }
@@ -22,8 +22,7 @@
     });
 */
 
-/* *** Objeto 03 map() 2 ***
-========================= 
+/* *** Objeto 03 map() 2 *** */
     const produto = [
         { nome: 'arroz cristal', preco: 37.50, quantidade: 10, status: true },
         { nome: 'arroz pampa', preco: 29.50, quantidade: 10, status: true }
@@ -32,8 +31,6 @@
     listar = produto.map( item => {
         console.log( item.nome, item.preco )
     });
-
-*/
 
 /* *** Objeto 03 map() 3 ***
 ========================= 
@@ -117,7 +114,7 @@ console.log(buscarProduto)
 
 const contasApagar = [
     { nome: 'energia', preco: 180, quantidade: 1 },
-    { nome: 'agual',   preco: 150.59, quantidade: 1 },
+    { nome: 'agua',   preco: 150.59, quantidade: 1 },
     { nome: 'carro',   preco: 5550.89, quantidade: 1 }
 ]
 

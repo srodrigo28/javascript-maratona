@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo tabs</title>
+    <!--
+        https://www.youtube.com/watch?v=wo7qpnxZnX8
+    -->
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            font-family: Arial, sans-serif;
+            padding-top: 20px;
+        }
+        .tab{
+            width: 69%;
+            margin: 0 auto;
+            border: #f1f1f1;
+            border: 2px solid #ccc;
+            border-bottom: none;
+            border-radius: 5px 5px 0 0;
+        }
+        .tab button{
+            background-color: #f1f1f1;
+            border: none;
+            outline: none;
+            border-radius: 5px 5px 0 0;
+            cursor: pointer;
+            padding: 10px 16px;
+            font-weight: bold;
+            color: #333;
+            width: 140px;
+        }
+        .tab button:hover{
+            background-color: #fbfbfb;
+        }
+
+        .tab btutton.ativo{
+            background-color: white;
+            color: #008cff;
+        }
+        .conteudo{
+            border: 1px solid #ccc;
+            border: none;
+            padding: 6px 12px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="tab">
+        <button class="ativo">HTML5</button>
+        <button>CSS3</button>
+        <button>JS</button>
+        <button>TypeScript</button>
+    </div>
+    
+    <div id="html" class="conteudo">
+        <h3>HTML5</h3>
+        <p>
+            O HTML5 é a versão mais recente da linguagem HyperText Markup Language (HTML), ou Linguagem de Marcação de Hipertexto, e é fundamental para a internet atual. 
+        </p>
+    </div>
+
+    <div id="css" class="conteudo">
+        <h3>CSS3</h3>
+        <p>
+            O CSS3 é a terceira versão do CSS, uma linguagem de estilo que permite criar a aparência de páginas da web, interfaces de usuário e sites. 
+        </p>
+    </div>
+
+    <div id="js" class="conteudo">
+        <h3>JS</h3>
+        <p>
+            JavaScript é uma linguagem de programação que permite a criação de páginas web interativas, melhorando a experiência do usuário.
+        </p>
+    </div>
+
+    <div id="ts" class="conteudo">
+        <h3>TypeScript</h3>
+        <p>
+            TypeScript é uma linguagem de programação de código aberto, desenvolvida pela Microsoft, que adiciona recursos à linguagem JavaScript.
+        </p>
+    </div>
+</body>
+</html>

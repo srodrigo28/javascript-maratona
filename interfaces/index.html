@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propagation</title>
+</head>
+<body>
+    <div class="one">01</div>
+    <div class="two">02</div>
+    <div class="for">03</div>
+    <div class="five">04</div>
+
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            padding: 10px;
+            background-color: #f2f2f2;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+        }
+    </style>
+
+    <script defer>
+        // https://www.youtube.com/watch?v=esXH65f7_n8
+        const divs = document.querySelectorAll('div')
+
+        divs.forEach(
+            div => div.addEventListener('click', logClass, {
+                capture: true,
+            })
+        )
+
+        function logClass(e) {
+            e.preventDefault()
+            
+            console.log(this.classList.value)
+            
+        }
+    </script>
+</body>
+</html>
