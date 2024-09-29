@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aluno</title>
+</head>
+<body>
+    <h1 style="text-align: center; margin-bottom: 50px;">Lista Alunos Habilidades</h1>
+    <div class="main">
+        <form>
+            <label for="select-status">Listar por:</label>
+            <select id="select-status">
+                <option value="">Status</option>
+                <option value="ativo">Ativo</option>
+                <option value="inativo">Inativo</option>
+            </select>
+            
+            <input type="checkbox" id="frontend">
+            <label for="frontend">Front-End</label>
+            
+            <input type="checkbox" id="backend">
+            <label for="backend">Front-Back</label>
+        </form>
+    </div>
+
+    <ul>
+        <li>
+           <div class="start">
+                <div class="img-titulo">
+                    <img src="https://avatars.githubusercontent.com/u/87488503?v=4" alt="">
+                    <h2>Edson Emanoel</h2>
+                </div>
+                <div class="quality-dev">
+                    <strong>Skills:</strong>
+                    <span>HTML5</span>
+                    <span>CSS3</span>
+                    <span>React</span>
+                    <span>JavaScript</span>
+                    <span>Java</span>
+                </div>
+           </div>
+            <div class="controles">
+                <span>Status:</span>
+                <div id="status"></div>
+                <div id="idade">14</div>
+                <button id="btn_mais">Ver ...</button>
+            </div>
+        </li>
+        
+        <li>
+            <div class="start">
+                <div class="img-titulo">
+                    <img src="https://avatars.githubusercontent.com/u/168974048?v=4" alt="">
+                    <h2>Emerson Sabino</h2>
+                </div>
+                <div class="quality-dev">
+                    <strong>Skills:</strong>
+                    <span>HTML5</span>
+                    <span>CSS3</span>
+                    <span>React</span>
+                    <span>JavaScript</span>
+                    <span>Java</span>
+                </div>
+            </div>
+            <div class="controles">
+                <span>Status:</span>
+                <div id="status"></div>
+                <div id="idade">34</div>
+                <button id="btn_mais">Ver ...</button>
+            </div>
+        </li>
+        
+        <li>
+            <div class="start">
+                <div class="img-titulo">
+                    <img src="https://avatars.githubusercontent.com/u/134082250?v=4" alt="">
+                    <h2>Giovanni Miranda</h2>
+                </div>
+                <div class="quality-dev">
+                    <strong>Skills:</strong>
+                    <span>HTML5</span>
+                    <span>CSS3</span>
+                    <span>JavaScript</span>
+                </div>
+            </div>
+            <div class="controles">
+                <span>Status:</span>
+                <div id="status"></div>
+                <div id="idade">29</div>
+                <button id="btn_mais">Ver ...</button>
+            </div>
+        </li>
+
+        <li>
+            <div class="start">
+                <div class="img-titulo">
+                    <img src="https://avatars.githubusercontent.com/u/160196456?v=4" alt="">
+                    <h2>Luis Fernando</h2>
+                </div>
+                <div class="quality-dev">
+                    <strong>Skills:</strong>
+                    <span>HTML5</span>
+                    <span>CSS3</span>
+                    <span>JavaScript</span>
+                </div>
+            </div>
+            <div class="controles">
+                <span>Status:</span>
+                <div id="status"></div>
+                <div id="idade">17</div>
+                <button id="btn_mais">Ver ...</button>
+            </div>
+        </li>
+
+        <li>
+            <div class="start">
+                <div class="img-titulo">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwvpMnvUe0MYyVhGxxZpfptL97crMhjPFTGQ&s" alt="">
+                    <h2>Isabelli Sabino</h2>
+                </div>
+                <div class="quality-dev">
+                    <strong>Skills:</strong>
+                    <span>HTML5</span>
+                    <span>CSS3</span>
+                    <span>JavaScript</span>
+                </div>
+            </div>
+            <div class="controles">
+                <span>Status:</span>
+                <div id="status"></div>
+                <div id="idade">35</div>
+                <button id="btn_mais">Ver ...</button>
+            </div>
+        </li>
+
+        <li>
+            <div class="start">
+                <div class="img-titulo">
+                    <img src="./img/lucas.png" alt="">
+                    <h2>Lucas Sousa</h2>
+                </div>
+                <div class="quality-dev">
+                    <strong>Skills:</strong>
+                    <span>HTML5</span>
+                    <span>CSS3</span>
+                    <span>JavaScript</span>
+                </div>
+            </div>
+            <div class="controles">
+                <span>Status:</span>
+                <div id="status"></div>
+                <div id="idade">23</div>
+                <button id="btn_mais">Ver ...</button>
+            </div>
+        </li>
+
+        <li>
+            <div class="start">
+                <div class="img-titulo">
+                    <img src="https://avatars.githubusercontent.com/u/175716768?s=400&u=cf25b647c1a60dcfbe34d58542d8df21d92d4d5f&v=4" alt="">
+                    <h2>Nathan Sabino</h2>
+                </div>
+                <div class="quality-dev">
+                    <strong>Skills:</strong>
+                    <span>HTML5</span>
+                    <span>CSS3</span>
+                    <span>JavaScript</span>
+                </div>
+            </div>
+            <div class="controles">
+                <span>Status:</span>
+                <div id="status"></div>
+                <div id="idade">12</div>
+                <button id="btn_mais">Ver ...</button>
+            </div>
+        </li>
+        <li>
+            <div class="start">
+                <div class="img-titulo">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwvpMnvUe0MYyVhGxxZpfptL97crMhjPFTGQ&s" alt="">
+                    <h2>Davi Sousa</h2>
+                </div>
+                <div class="quality-dev">
+                    <strong>Skills:</strong>
+                    <span>HTML5</span>
+                    <span>CSS3</span>
+                    <span>JavaScript</span>
+                </div>
+            </div>
+            <div class="controles">
+                <span>Status:</span>
+                <div id="status"></div>
+                <div id="idade">18</div>
+                <button id="btn_mais">Ver ...</button>
+            </div>
+        </li>
+        <li>
+            <div class="start">
+                <div class="img-titulo">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwvpMnvUe0MYyVhGxxZpfptL97crMhjPFTGQ&s" alt="">
+                    <h2>Kauão Ghabriel Alves Silva</h2>
+                </div>
+                <div class="quality-dev">
+                    <strong>Skills:</strong>
+                    <span>HTML5</span>
+                    <span>CSS3</span>
+                    <span>React</span>
+                    <span>JavaScript</span>
+                </div>
+            </div>
+            <div class="controles">
+                <span>Status:</span>
+                <div id="status"></div>
+                <div id="idade">17</div>
+                <button id="btn_mais">Ver ...</button>
+            </div>
+        </li>
+
+    </ul>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+            border: none;
+            outline: none;
+        }
+        body{
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            background-color: #1c1c1c;
+        }
+        form{
+            max-width: 90%;
+            min-width: 90%;
+            margin-bottom: 20px;
+            gap: 10px;
+            display: flex;
+            align-items: center;
+        }
+        form input, select{
+            padding: 3px;
+            border-radius: 5px;
+        }
+        .main, ul{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .start{
+            gap: 10px;
+            display: flex;
+            justify-content: start;
+        }
+        ul{
+            gap: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+        li{
+            width: 90%;
+            
+            padding: 10px;
+            border-radius: 7px;
+
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            justify-content: space-between;
+
+            background-color: blueviolet;
+        }
+        li img{
+            width: 50px;
+            border-radius: 50%;
+        }
+        li h2{
+            font-size: .9em;
+        }
+        .img-titulo{
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .quality-dev{
+            gap: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
+        }
+        .quality-dev strong{ font-size: .9em;}
+        .quality-dev span{
+            font-weight: bold;
+            color: #1c1c1c;
+            background-color: #fff;
+            padding: 3px 15px ;
+            border-radius: 7px;
+            cursor: pointer;
+            font-size: .9em;
+        }
+        .controles{
+            gap: 5px;
+            display: flex;
+            align-items: center;
+        }
+        .controles span{ font-weight: 500; font-style: italic;}
+        #status, #btn_mais{ cursor: pointer; }
+        #status{
+            height: 15px;
+            width: 15px !important;
+            padding: 5px;
+            border-radius: 50%;
+            background-color: green;
+        }
+        #ativo{
+            background-color: greenyellow;
+        }
+        #inativo{
+            background-color: red;
+        }
+        #btn_mais{
+            font-size: .5rem;
+            width: 35px;
+            padding: 2px 4px;
+            border: none;
+            border-radius: 7px;
+            color: white;
+            background-color: #1c1c1c;
+        }
+
+        /* responsivo */
+        @media screen and (max-width: 1120px) {
+            .quality-dev span{
+                font-size: .6em;
+                padding: 3px 15px ;
+                border-radius: 7px;
+            }
+        }
+        @media screen and (max-width: 950px) {
+            .quality-dev span{
+                font-size: .6em;
+                padding: 3px 15px ;
+                border-radius: 7px;
+            }
+        }
+    </style>
+
+    <script>
+        var btn_mais = document.querySelector('#btn_mais')
+        console.log(btn_mais)
+    </script>
+</body>
+</html>

@@ -60,6 +60,8 @@
             padding: 0;
             box-sizing: border-box;
             font-family: Arial, sans-serif;
+
+            border: none;
         }
         body{
             background-color: #6366f2;
@@ -69,9 +71,16 @@
             min-height: 100vh;
             overflow: hidden;
         }
+        button{
+            padding: 4px 20px;
+            border-radius: 5px;
+            color: #fff;
+            background-color: #6366f2;
+            margin-bottom: 10px;
+        }
         #container{
             background-color: #f0f8ff;
-            height: 80vh;
+            height: 30vh;
             width: 600px;
             padding: 20px;
             border-radius: 8px;
@@ -89,6 +98,28 @@
         }
     </style>
 
-    <script defer src="./tabs.js"></script>
+    <script>
+        const tabs = document.querySelectorAll('.tab-btn');
+
+            // alert('hello world')
+
+            tabs.forEach(tab => tab.addEventListener('click', () => tabClicked(tab)));
+
+            const tabClicked = (tab) => {
+                tabs.forEach(tab => tab.classList.remove('active'));
+                tab.classList.add('active');
+
+                const contents = document.querySelectorAll('.content');
+                contents.forEach(content => content.classList.remove('show'));
+
+                const contentId = tab.getAttribute('content-id');
+                const content = document.getElementById(contentId);
+                //const content = document.querySelectorAll('#contentId')
+
+                content.classList.add('show');
+            }
+    </script>
+
+    
 </body>
 </html>
