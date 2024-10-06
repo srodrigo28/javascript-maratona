@@ -3,10 +3,9 @@ let alunos = [
     {id: 2, nome: "Manuela Duarte Lemos", price: 300.00, cadastro: "30-09-2024" },
     {id: 3, nome: "Emerson Sabino",       price: 300.00, cadastro: "30-09-2024" },
     {id: 4, nome: "Nathan Sabino",        price: 300.00, cadastro: "30-09-2024" },
-    {id: 5, nome: "Lucas Sousa",          price: 500.00, cadastro: "30-09-2024" },
-    {id: 6, nome: "Giovanni Miranda",     price: 1000.00, cadastro: "30-09-2024" },
-    {id: 7, nome: "Luiz Fernando",        price: 400.00, cadastro: "30-09-2024" },
-    {id: 8, nome: "Kauã",                 price: 400.00, cadastro: "30-09-2024" }
+    {id: 5, nome: "Giovanni Miranda",     price: 1000.00, cadastro: "30-09-2024" },
+    {id: 6, nome: "Luiz Fernando",        price: 400.00, cadastro: "30-09-2024" },
+    {id: 7, nome: "Kauã",                 price: 400.00, cadastro: "30-09-2024" }
 ]
 
 function listaDeAlunos(){
