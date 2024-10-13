@@ -15,4 +15,9 @@ function stringText(text, size) {
 function stringImg(imgFomart){
     return imgFomart.replace(/\w\.jpg/gi, 'W.jpg');
 }
+
+// encontra e substitui
+function stringImg2(imgFomart){
+    return imgFomart.replace(/\w\.jpg/gi, 'W.jpg');
+}
 // console.log(stringImg("img.jpg"))
