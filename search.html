@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Busca</title>
+</head>
+<body>
+    <input type="text" placeholder="digite um valor">
+
+    <script defer>
+        // https://www.youtube.com/watch?v=dI8wiEs8cag
+        var searchInput = document.querySelector("input")
+
+        // searchInput.addEventListener("input", function() {
+        //     console.log(searchInput.value)
+        // })
+
+        // searchInput.addEventListener("input", (event) => {
+        //     console.log(searchInput.value)
+        // })
+
+        // searchInput.oninput = function() {
+        //     console.log(searchInput.value)
+        // }
+
+        searchInput.oninput = () => {
+            // console.log(searchInput.value)
+            let inputText = searchInput.value
+
+            // console.log(formatString(inputText))
+            console.log( inputText.toLocaleLowerCase.trim )
+            console.log( inputText.toLocalCapita )
+        }
+
+        function formatString(value){
+            return value.toLowerCase().trim()
+        }
+    </script>
+</body>
+</html>
