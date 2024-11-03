@@ -12,5 +12,9 @@ const contasAreceber = [
 const totalReceber = contasAreceber.reduce(
     (total, item) => total + (item.preco * item.quantidade) , 0)
 
+const totalSomar = contasAreceber.reduce(
+    (total, item) => total + (item.preco) , 0)
+
 console.log('Quantidade de Alunos ' + contasAreceber.length)
 console.log('Total a receber R$ ' + totalReceber.toFixed(2))
+console.log('Total a receber soma R$ ' + totalSomar.toFixed(2))
