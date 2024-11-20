@@ -23,4 +23,13 @@ function calcularFaturamento(){
     
     console.log('Total faturamento: R$ ' + total)
 }
+
+
+function calcularFaturamento2(){
+    const total = alunos.reduce((total, item) => {
+        return total + item.price
+    }, 0)
+    
+    console.log('Total faturamento: R$ ' + total)
+}
 //calcularFaturamento()
