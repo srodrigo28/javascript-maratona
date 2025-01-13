@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo</title>
+</head>
+<body>
+    <script>
+        const numeroSecreto = Math.floor(Math.random() * 10) + 1; // Número entre 1 e 10
+        let tentativas = 3;
+        while (tentativas > 0) {
+            const chute = parseInt(prompt(`Adivinhe o número (1 a 10). Tentativas restantes: ${tentativas}`));
+            if (chute === numeroSecreto) {
+                alert('Parabéns! Você acertou!');
+                break;
+            } else {
+                alert(chute < numeroSecreto ? 'Mais alto!' : 'Mais baixo!');
+                tentativas--;
+            }
+        }
+        if (tentativas === 0) {
+            alert(`Que pena! O número era ${numeroSecreto}.`);
+        }
+    </script>
+</body>
+</html>
