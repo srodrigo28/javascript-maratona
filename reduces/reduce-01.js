@@ -17,3 +17,11 @@ const contasAreceber = [
     { nome: 'Kauan',   preco: 400, quantidade: 1, cidadePais: 'Goiânia' },
     { nome: 'Construservice',   preco: 1500, quantidade: 1, cidadePais: 'Goiânia' },
 ]
+
+const contasAreceber = [
+    { nome: 'emerson portugal',   preco: 600, quantidade: 1, cidadePais: 'portugal' },
+    { nome: 'Phelipe',   preco: 250, quantidade: 1, cidadePais: 'rio de janeiro' },
+    { nome: 'Giovanni',   preco: 1000, quantidade: 1, cidadePais: 'porto velho' },
+    { nome: 'Ronaldo ',   preco: 300, quantidade: 1, cidadePais: 'Goiânia' },
+    { nome: 'Construservice',   preco: 1500, quantidade: 1, cidadePais: 'Goiânia' },
+]
