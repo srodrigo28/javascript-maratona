@@ -13,6 +13,8 @@ var total = contasAreceber.length
 
 var listaAreceber = contasAreceber.filter((item) => statusMes.length == "false");
 
+var listaAreceber = contasAreceber.filter((item) => preco > 400);
+
 var lista = listaAreceber.forEach( item => console.log(item))
 
 console.log(lista)
