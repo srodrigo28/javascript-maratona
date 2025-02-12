@@ -1,7 +1,7 @@
 const url = "http://localhost:3000/users"
 
-const userName = "USER1 "
-const userPassword = "123 "
+const userName = "USER2"
+const userPassword = "123456"
 
 function validar() {
     userValido = userName.toLowerCase().trim()
