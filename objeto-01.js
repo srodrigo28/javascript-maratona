@@ -1,4 +1,5 @@
-/* *** Objeto 01 forEach *** */
+/* *** Objeto 01 forEach *** */]
+var key = 1123
 ========================= 
     const produtoPreco = [
         { nome: 'arroz cristal', preco: 37.50 },
