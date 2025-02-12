@@ -1,4 +1,4 @@
-/* *** Objeto 01 forEach ***
+/* *** Objeto 01 forEach *** */
 ========================= 
     const produtoPreco = [
         { nome: 'arroz cristal', preco: 37.50 },
@@ -8,7 +8,7 @@
     listar = produtoPreco.forEach( item => {
         console.log( item.nome, item.preco )
     });
-*/
+
 
 /* *** Objeto 02 map() 1 ***
 =========================
