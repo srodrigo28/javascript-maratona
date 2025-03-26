@@ -30,7 +30,8 @@ console.log(produtoLucro)
 
 const produtoPreco = [
     { nome: 'arroz cristal', preco: 37.50 },
-    { nome: 'arroz pampa', preco: 29.50 }
+    { nome: 'arroz pampa', preco: 29.50 },
+    { nome: 'feijão pampa', preco: 10.50 }
 ]
 console.log('valor de custo do produto é ')
 console.log(produtoPreco + '\n')
