@@ -10,6 +10,10 @@ var key = 1123
         console.log( item.nome, item.preco )
     });
 
+    listar2 = produtoPreco.forEach( item => {
+        console.log( item.nome )
+    });
+
 
 /* *** Objeto 02 map() 1 ***
 =========================
