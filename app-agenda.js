@@ -1,3 +1,5 @@
+alert('hello')
+
 let agendados =  [
     { "id": 1, "nome": "alex", "telefone": "", "valor": 25, "data": "2024-10-31" },
     { "id": 2, "nome": "marcio", "telefone": "", "valor": 80, "data": "2024-10-28" },
