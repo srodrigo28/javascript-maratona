@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Tarefas Diárias</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Estilo personalizado para a tabela */
+        .table-auto th, .table-auto td {
+            padding: 0.75rem; /* Espaçamento interno */
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb; /* Linha sutil para separar linhas */
+        }
+        /* Estilo para a linha quando o status é "Concluída" */
+        .status-Concluída {
+            background-color: #f0fff4; /* Fundo verde muito claro */
+            color: #10b981; /* Texto verde claro */
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-8">
+
+    <div class="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-xl">
+        <header class="mb-6">
+            <h1 class="text-3xl font-bold text-gray-800">📋 Registro de Tarefas Diárias</h1>
+        </header>
+
+        <section class="mb-8 p-4 border rounded-lg bg-gray-50">
+            <h2 class="text-xl font-semibold mb-3 text-gray-700">➕ Adicionar Nova Tarefa</h2>
+            <form id="taskForm" class="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
+                <div class="col-span-1 md:col-span-2">
+                    <label for="taskName" class="block text-sm font-medium text-gray-700">Nome da Tarefa:</label>
+                    <input type="text" id="taskName" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div>
+                    <label for="taskDate" class="block text-sm font-medium text-gray-700">Data:</label>
+                    <input type="date" id="taskDate" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <button type="submit" class="w-full bg-blue-600 text-white p-2 rounded-md hover:bg-blue-700 transition duration-150">Adicionar</button>
+            </form>
+        </section>
+
+        <section class="mb-8 p-4 border rounded-lg bg-gray-50">
+            <h2 class="text-xl font-semibold mb-3 text-gray-700">🔍 Filtros</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div>
+                    <label for="filterName" class="block text-sm font-medium text-gray-700">Nome (Busca):</label>
+                    <input type="text" id="filterName" placeholder="Buscar por nome..." class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div>
+                    <label for="filterDate" class="block text-sm font-medium text-gray-700">Filtrar por Data:</label>
+                    <input type="date" id="filterDate" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div>
+                    <label for="filterStatus" class="block text-sm font-medium text-gray-700">Filtrar por Status:</label>
+                    <select id="filterStatus" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500 bg-white">
+                        <option value="">Todos</option>
+                        <option value="Pendente">Pendente</option>
+                        <option value="Concluída">Concluída</option>
+                    </select>
+                </div>
+                <div class="flex items-end">
+                    <button id="clearFilters" class="w-full bg-red-500 text-white p-2 rounded-md hover:bg-red-600 transition duration-150">Limpar Filtros</button>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="text-xl font-semibold mb-3 text-gray-700">📑 Lista de Tarefas</h2>
+            <div class="overflow-x-auto rounded-lg shadow-md">
+                <table class="min-w-full bg-white table-auto">
+                    <thead>
+                        <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                            <th class="py-3 px-6 text-left">Nome</th>
+                            <th class="py-3 px-6 text-left">Data</th>
+                            <th class="py-3 px-6 text-left">Status</th>
+                            <th class="py-3 px-6 text-center">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="taskListBody" class="text-gray-600 text-sm font-light">
+                        </tbody>
+                </table>
+                <p id="noTasksMessage" class="text-center p-4 text-gray-500 hidden">Nenhuma tarefa encontrada.</p>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const taskForm = document.getElementById('taskForm');
+            const taskListBody = document.getElementById('taskListBody');
+            const noTasksMessage = document.getElementById('noTasksMessage');
+
+            // Elementos de Filtro
+            const filterName = document.getElementById('filterName');
+            const filterDate = document.getElementById('filterDate');
+            const filterStatus = document.getElementById('filterStatus');
+            const clearFiltersButton = document.getElementById('clearFilters');
+
+            let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+            // Função para salvar as tarefas no LocalStorage
+            const saveTasks = () => {
+                localStorage.setItem('tasks', JSON.stringify(tasks));
+            };
+
+            // Função para formatar a data (YYYY-MM-DD para DD/MM/YYYY)
+            const formatDate = (dateString) => {
+                const [year, month, day] = dateString.split('-');
+                return `${day}/${month}/${year}`;
+            };
+
+            // Função principal para renderizar as tarefas
+            const renderTasks = (currentTasks) => {
+                taskListBody.innerHTML = ''; // Limpa a lista atual
+
+                if (currentTasks.length === 0) {
+                    noTasksMessage.classList.remove('hidden');
+                    return;
+                }
+                noTasksMessage.classList.add('hidden');
+
+                currentTasks.forEach((task, index) => {
+                    const row = document.createElement('tr');
+                    const statusClass = task.status === 'Concluída' ? 'status-Concluída' : 'bg-white hover:bg-gray-50';
+                    
+                    row.className = `${statusClass} border-b border-gray-200`;
+                    
+                    row.innerHTML = `
+                        <td class="py-3 px-6 whitespace-nowrap">${task.name}</td>
+                        <td class="py-3 px-6 whitespace-nowrap">${formatDate(task.date)}</td>
+                        <td class="py-3 px-6 whitespace-nowrap">
+                            <span class="p-1 rounded-full text-xs font-semibold ${task.status === 'Pendente' ? 'bg-yellow-200 text-yellow-800' : 'bg-green-200 text-green-800'}">
+                                ${task.status}
+                            </span>
+                        </td>
+                        <td class="py-3 px-6 text-center">
+                            <div class="flex item-center justify-center space-x-2">
+                                <button onclick="toggleStatus(${task.id})" 
+                                    class="text-sm font-medium p-1 rounded transition duration-150 
+                                    ${task.status === 'Pendente' ? 'bg-green-500 hover:bg-green-600 text-white' : 'bg-yellow-500 hover:bg-yellow-600 text-white'}">
+                                    ${task.status === 'Pendente' ? '✓ Concluir' : '↩ Reabrir'}
+                                </button>
+                                <button onclick="deleteTask(${task.id})" 
+                                    class="bg-red-500 hover:bg-red-600 text-white text-sm font-medium p-1 rounded transition duration-150">
+                                    🗑 Excluir
+                                </button>
+                            </div>
+                        </td>
+                    `;
+                    taskListBody.appendChild(row);
+                });
+            };
+
+            // Função para adicionar nova tarefa
+            taskForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const taskName = document.getElementById('taskName').value.trim();
+                const taskDate = document.getElementById('taskDate').value;
+
+                if (taskName && taskDate) {
+                    const newTask = {
+                        id: Date.now(), // ID único baseado no timestamp
+                        name: taskName,
+                        date: taskDate, // Formato YYYY-MM-DD
+                        status: 'Pendente'
+                    };
+                    tasks.push(newTask);
+                    saveTasks();
+                    applyFilters(); // Renderiza com os filtros aplicados
+                    taskForm.reset();
+                }
+            });
+
+            // Função de Filtragem
+            const applyFilters = () => {
+                const nameFilter = filterName.value.toLowerCase();
+                const dateFilter = filterDate.value;
+                const statusFilter = filterStatus.value;
+
+                const filteredTasks = tasks.filter(task => {
+                    // Filtro por Nome (busca parcial, case-insensitive)
+                    const matchesName = task.name.toLowerCase().includes(nameFilter);
+                    
+                    // Filtro por Data (exata)
+                    const matchesDate = !dateFilter || task.date === dateFilter;
+
+                    // Filtro por Status
+                    const matchesStatus = !statusFilter || task.status === statusFilter;
+
+                    return matchesName && matchesDate && matchesStatus;
+                });
+
+                renderTasks(filteredTasks);
+            };
+
+            // Adiciona listeners para os filtros
+            filterName.addEventListener('input', applyFilters);
+            filterDate.addEventListener('change', applyFilters);
+            filterStatus.addEventListener('change', applyFilters);
+
+            // Botão Limpar Filtros
+            clearFiltersButton.addEventListener('click', () => {
+                filterName.value = '';
+                filterDate.value = '';
+                filterStatus.value = '';
+                applyFilters();
+            });
+
+            // Funções de Ação (Acessíveis globalmente para os botões)
+            window.toggleStatus = (taskId) => {
+                const taskIndex = tasks.findIndex(t => t.id === taskId);
+                if (taskIndex !== -1) {
+                    tasks[taskIndex].status = tasks[taskIndex].status === 'Pendente' ? 'Concluída' : 'Pendente';
+                    saveTasks();
+                    applyFilters();
+                }
+            };
+
+            window.deleteTask = (taskId) => {
+                tasks = tasks.filter(t => t.id !== taskId);
+                saveTasks();
+                applyFilters();
+            };
+
+            // Inicialização: Renderiza as tarefas ao carregar a página
+            applyFilters();
+        });
+    </script>
+
+</body>
+</html>
